@@ -46,55 +46,25 @@ const rules: KarabinerRules[] = [
     // o = "Open" applications
     o: {
       g: app("Google Chrome"),
-      c: app("Cron"),
       v: app("Visual Studio Code"),
-      d: app("Discord"),
       s: app("Slack"),
-      e: app("Superhuman"),
-      n: app("Notion"),
-      t: app("Terminal"),
-      // Open todo list managed via *H*ypersonic
-      h: open(
-        "notion://notion.so/stellatehq/Max-Stoiber-CEO-90ea5326add5408f967278461f37c39b#29b31b030a5a4192b05f3883f7d47fe3"
-      ),
+      e: app("Trello"),
+      t: app("Warp"),
       z: app("zoom.us"),
-      m: app("Muse"),
-      f: app("Figma"),
-      r: app("Telegram"),
-      // "i"Message
       i: app("Messages"),
       p: app("Spotify"),
-      a: app("iA Presenter"),
       w: open("https://web.whatsapp.com"),
-      l: open("Linear"),
+      r: open("https://calendar.google.com"),
     },
 
-    // w = "Window" via rectangle.app
+    // w = "Window" via Raycast.app
     w: {
-      semicolon: {
-        description: "Window: Hide",
-        to: [
-          {
-            key_code: "h",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      y: {
-        description: "Window: First Third",
-        to: [
-          {
-            key_code: "left_arrow",
-            modifiers: ["right_option", "right_control"],
-          },
-        ],
-      },
       k: {
         description: "Window: Top Half",
         to: [
           {
-            key_code: "up_arrow",
-            modifiers: ["right_option", "right_command"],
+            key_code: "k",
+            modifiers: ["left_option", "left_control"],
           },
         ],
       },
@@ -102,17 +72,8 @@ const rules: KarabinerRules[] = [
         description: "Window: Bottom Half",
         to: [
           {
-            key_code: "down_arrow",
-            modifiers: ["right_option", "right_command"],
-          },
-        ],
-      },
-      o: {
-        description: "Window: Last Third",
-        to: [
-          {
-            key_code: "right_arrow",
-            modifiers: ["right_option", "right_control"],
+            key_code: "j",
+            modifiers: ["left_option", "left_control"],
           },
         ],
       },
@@ -120,8 +81,8 @@ const rules: KarabinerRules[] = [
         description: "Window: Left Half",
         to: [
           {
-            key_code: "left_arrow",
-            modifiers: ["right_option", "right_command"],
+            key_code: "h",
+            modifiers: ["left_option", "left_control"],
           },
         ],
       },
@@ -129,75 +90,25 @@ const rules: KarabinerRules[] = [
         description: "Window: Right Half",
         to: [
           {
-            key_code: "right_arrow",
-            modifiers: ["right_option", "right_command"],
+            key_code: "l",
+            modifiers: ["left_option", "left_control"],
           },
         ],
       },
-      f: {
-        description: "Window: Full Screen",
-        to: [
-          {
-            key_code: "f",
-            modifiers: ["right_option", "right_command"],
-          },
-        ],
-      },
-      u: {
-        description: "Window: Previous Tab",
-        to: [
-          {
-            key_code: "tab",
-            modifiers: ["right_control", "right_shift"],
-          },
-        ],
-      },
-      i: {
-        description: "Window: Next Tab",
-        to: [
-          {
-            key_code: "tab",
-            modifiers: ["right_control"],
-          },
-        ],
-      },
-      n: {
-        description: "Window: Next Window",
-        to: [
-          {
-            key_code: "grave_accent_and_tilde",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      b: {
-        description: "Window: Back",
-        to: [
-          {
-            key_code: "open_bracket",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      // Note: No literal connection. Both f and n are already taken.
-      m: {
-        description: "Window: Forward",
-        to: [
-          {
-            key_code: "close_bracket",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      d: {
-        description: "Window: Next display",
-        to: [
-          {
-            key_code: "right_arrow",
-            modifiers: ["right_control", "right_option", "right_command"],
-          },
-        ],
-      },
+      // # rotate layout clockwise, with Yabai
+      r: { to: [{ key_code: "r", modifiers: ["left_option","left_shift"],}],},
+      // # toggle window floatf, with Yabai
+      e: { to: [{ key_code: "t", modifiers: ["left_option","left_shift"],}],},
+      // # Maximize a Window, with Yabai
+      f: { to: [ { key_code: "m", modifiers: ["left_option", "left_shift"],},],},
+      // # Toggle Full Screen, with Raycast
+      d: { to: [ { key_code: "f", modifiers: ["left_control", "left_option"],},],},
+      // # Move window to prev and next space
+      m: { to: [ { key_code: "n", modifiers: ["left_option","left_shift"],},],},
+      n: { to: [ { key_code: "p", modifiers: ["left_option","left_shift"],},],},
+      // # Move to next or prev Desktop
+      u: { to: [ { key_code: "h", modifiers: ["left_control"],},],},
+      i: { to: [ { key_code: "l", modifiers: ["left_control"],},],},
     },
 
     // s = "System"
@@ -261,21 +172,6 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      // Turn on Elgato KeyLight
-      y: {
-        to: [
-          {
-            shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 1, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
-          },
-        ],
-      },
-      h: {
-        to: [
-          {
-            shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 0, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
-          },
-        ],
-      },
     },
 
     // v = "moVe" which isn't "m" because we want it to be on the left hand
@@ -292,17 +188,6 @@ const rules: KarabinerRules[] = [
       },
       l: {
         to: [{ key_code: "right_arrow" }],
-      },
-      // Magicmove via homerow.app
-      m: {
-        to: [{ key_code: "f", modifiers: ["right_control"] }],
-      },
-      // Scroll mode via homerow.app
-      s: {
-        to: [{ key_code: "j", modifiers: ["right_control"] }],
-      },
-      d: {
-        to: [{ key_code: "d", modifiers: ["right_shift", "right_command"] }],
       },
       u: {
         to: [{ key_code: "page_down" }],
@@ -324,6 +209,20 @@ const rules: KarabinerRules[] = [
         to: [{ key_code: "rewind" }],
       },
     },
+
+    // f = focus
+    f: {
+      // # change window focus within space, with help of yabai
+      j: { to: [{ key_code: "j", modifiers: ["left_option"],}],},
+      k: { to: [{ key_code: "k", modifiers: ["left_option"],}],},
+      h: { to: [{ key_code: "h", modifiers: ["left_option"],}],},
+      l: { to: [{ key_code: "l", modifiers: ["left_option"],}],},
+      // # change focus between external displays (left and right)
+      u: { to: [{ key_code: "s", modifiers: ["left_option"],}],},
+      i: { to: [{ key_code: "g", modifiers: ["left_option"],}],},
+      
+    },
+
   }),
 ];
 
@@ -332,18 +231,378 @@ fs.writeFileSync(
   JSON.stringify(
     {
       global: {
+        ask_for_confirmation_before_quitting: true,
+        check_for_updates_on_startup: true,
         show_in_menu_bar: false,
+        show_profile_name_in_menu_bar: false,
+        unsafe_ui: false
       },
       profiles: [
         {
-          name: "Default",
           complex_modifications: {
+            parameters: {
+              "basic.simultaneous_threshold_milliseconds": 50,
+              "basic.to_delayed_action_delay_milliseconds": 500,
+              "basic.to_if_alone_timeout_milliseconds": 1000,
+              "basic.to_if_held_down_threshold_milliseconds": 500,
+              "mouse_motion_to_scroll.speed": 100
+            },
             rules,
           },
+          devices: [
+            {
+                disable_built_in_keyboard_if_exists: false,
+                fn_function_keys: [],
+                identifiers: {
+                    is_keyboard: true,
+                    is_pointing_device: false,
+                    product_id: 0,
+                    vendor_id: 0
+                },
+                ignore: false,
+                manipulate_caps_lock_led: true,
+                simple_modifications: [
+                    {
+                        from: {
+                            apple_vendor_top_case_key_code: "keyboard_fn"
+                        },
+                        to: [
+                            {
+                                key_code: "left_command"
+                            }
+                        ]
+                    },
+                    {
+                        from: {
+                            key_code: "left_command"
+                        },
+                        to: [
+                            {
+                                key_code: "left_option"
+                            }
+                        ]
+                    },
+                    {
+                        from: {
+                            key_code: "left_control"
+                        },
+                        to: [
+                            {
+                                apple_vendor_top_case_key_code: "keyboard_fn"
+                            }
+                        ]
+                    },
+                    {
+                        from: {
+                            key_code: "left_option"
+                        },
+                        to: [
+                            {
+                                key_code: "left_control"
+                            }
+                        ]
+                    },
+                    {
+                        from: {
+                            key_code: "right_option"
+                        },
+                        to: [
+                            {
+                                key_code: "right_command"
+                            }
+                        ]
+                    },
+                    {
+                        from: {
+                            key_code: "right_command"
+                        },
+                        to: [
+                            {
+                                key_code: "right_option"
+                            }
+                        ]
+                    }
+                ],
+                treat_as_built_in_keyboard: false
+            },
+            {
+                disable_built_in_keyboard_if_exists: false,
+                fn_function_keys: [],
+                identifiers: {
+                    is_keyboard: false,
+                    is_pointing_device: true,
+                    product_id: 0,
+                    vendor_id: 0
+                },
+                ignore: true,
+                manipulate_caps_lock_led: false,
+                simple_modifications: [],
+                treat_as_built_in_keyboard: false
+            },
+            {
+                disable_built_in_keyboard_if_exists: false,
+                fn_function_keys: [],
+                identifiers: {
+                    is_keyboard: true,
+                    is_pointing_device: false,
+                    product_id: 1957,
+                    vendor_id: 1118
+                },
+                ignore: false,
+                manipulate_caps_lock_led: true,
+                simple_modifications: [
+                    {
+                        from: {
+                            key_code: "left_command"
+                        },
+                        to: [
+                            {
+                                key_code: "left_control"
+                            }
+                        ]
+                    },
+                    {
+                        from: {
+                            key_code: "left_control"
+                        },
+                        to: [
+                            {
+                                key_code: "left_command"
+                            }
+                        ]
+                    }
+                ],
+                treat_as_built_in_keyboard: false
+            },
+            {
+                disable_built_in_keyboard_if_exists: false,
+                fn_function_keys: [],
+                identifiers: {
+                    is_keyboard: false,
+                    is_pointing_device: true,
+                    product_id: 1957,
+                    vendor_id: 1118
+                },
+                ignore: true,
+                manipulate_caps_lock_led: false,
+                simple_modifications: [],
+                treat_as_built_in_keyboard: false
+            },
+            {
+                disable_built_in_keyboard_if_exists: false,
+                fn_function_keys: [],
+                identifiers: {
+                    is_keyboard: false,
+                    is_pointing_device: true,
+                    product_id: 23644,
+                    vendor_id: 9354
+                },
+                ignore: true,
+                manipulate_caps_lock_led: false,
+                simple_modifications: [],
+                treat_as_built_in_keyboard: false
+            },
+            {
+                disable_built_in_keyboard_if_exists: false,
+                fn_function_keys: [],
+                identifiers: {
+                    is_keyboard: true,
+                    is_pointing_device: false,
+                    product_id: 50475,
+                    vendor_id: 1133
+                },
+                ignore: false,
+                manipulate_caps_lock_led: true,
+                simple_modifications: [
+                    {
+                        from: {
+                            key_code: "left_command"
+                        },
+                        to: [
+                            {
+                                key_code: "left_control"
+                            }
+                        ]
+                    },
+                    {
+                        from: {
+                            key_code: "left_control"
+                        },
+                        to: [
+                            {
+                                key_code: "left_command"
+                            }
+                        ]
+                    }
+                ],
+                treat_as_built_in_keyboard: false
+            },
+            {
+                disable_built_in_keyboard_if_exists: false,
+                fn_function_keys: [],
+                identifiers: {
+                    is_keyboard: false,
+                    is_pointing_device: true,
+                    product_id: 50475,
+                    vendor_id: 1133
+                },
+                ignore: true,
+                manipulate_caps_lock_led: false,
+                simple_modifications: [],
+                treat_as_built_in_keyboard: false
+            },
+            {
+                disable_built_in_keyboard_if_exists: false,
+                fn_function_keys: [],
+                identifiers: {
+                    is_keyboard: true,
+                    is_pointing_device: false,
+                    product_id: 1031,
+                    vendor_id: 4176
+                },
+                ignore: true,
+                manipulate_caps_lock_led: true,
+                simple_modifications: [],
+                treat_as_built_in_keyboard: false
+            }
+          ],
+          fn_function_keys: [
+            {
+                from: {
+                    key_code: "f1"
+                },
+                to: [
+                    {
+                        consumer_key_code: "display_brightness_decrement"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f2"
+                },
+                to: [
+                    {
+                        consumer_key_code: "display_brightness_increment"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f3"
+                },
+                to: [
+                    {
+                        apple_vendor_keyboard_key_code: "mission_control"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f4"
+                },
+                to: [
+                    {
+                        apple_vendor_keyboard_key_code: "spotlight"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f5"
+                },
+                to: [
+                    {
+                        consumer_key_code: "dictation"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f6"
+                },
+                to: [
+                    {
+                        key_code: "f6"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f7"
+                },
+                to: [
+                    {
+                        consumer_key_code: "rewind"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f8"
+                },
+                to: [
+                    {
+                        consumer_key_code: "play_or_pause"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f9"
+                },
+                to: [
+                    {
+                        consumer_key_code: "fast_forward"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f10"
+                },
+                to: [
+                    {
+                        consumer_key_code: "mute"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f11"
+                },
+                to: [
+                    {
+                        consumer_key_code: "volume_decrement"
+                    }
+                ]
+            },
+            {
+                from: {
+                    key_code: "f12"
+                },
+                to: [
+                    {
+                        consumer_key_code: "volume_increment"
+                    }
+                ]
+            }
+        ],
+          name: "Default",
+            parameters: {
+                delay_milliseconds_before_open_device: 1000
+            },
+            selected: false,
+            simple_modifications: [],
+            virtual_hid_keyboard: {
+                country_code: 0,
+                indicate_sticky_modifier_keys_state: true,
+                mouse_key_xy_scale: 100
+            }
         },
       ],
     },
     null,
-    2
+    4
   )
 );

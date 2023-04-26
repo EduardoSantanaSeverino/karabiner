@@ -43,6 +43,7 @@
                                 "type": "basic"
                             },
                             {
+                                "type": "basic",
                                 "description": "Disable CMD + Tab to force Hyper Key usage",
                                 "from": {
                                     "key_code": "tab",
@@ -56,8 +57,7 @@
                                     {
                                         "key_code": "tab"
                                     }
-                                ],
-                                "type": "basic"
+                                ]
                             }
                         ]
                     },
@@ -65,34 +65,8 @@
                         "description": "Hyper Key sublayer \"o\"",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_v",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_c",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
                                 "description": "Toggle Hyper sublayer o",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
@@ -104,14 +78,6 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_o",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
@@ -120,17 +86,50 @@
                                         }
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_o",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_o",
                                         "type": "variable_if",
-                                        "value": 1
+                                        "name": "hyper_sublayer_w",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_c",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Google Chrome.app'"
                                     }
                                 ],
                                 "description": "Open -a 'Google Chrome.app'",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
@@ -139,22 +138,22 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Google Chrome.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_o",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
                                         "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Visual Studio Code.app'"
                                     }
                                 ],
                                 "description": "Open -a 'Visual Studio Code.app'",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": {
@@ -163,94 +162,22 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Visual Studio Code.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_o",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
                                         "value": 1
                                     }
-                                ],
-                                "description": "Open -a 'Slack.app'",
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Slack.app'"
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_o",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Open -a 'Trello.app'",
-                                "from": {
-                                    "key_code": "e",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Trello.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_o",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Open -a 'Warp.app'",
-                                "from": {
-                                    "key_code": "t",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Warp.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_o",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Open -a 'zoom.us.app'",
+                                "description": "Open -a 'Slack.app'",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
@@ -259,22 +186,94 @@
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Trello.app'"
+                                    }
+                                ],
+                                "description": "Open -a 'Trello.app'",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Warp.app'"
+                                    }
+                                ],
+                                "description": "Open -a 'Warp.app'",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "shell_command": "open -a 'zoom.us.app'"
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
+                                "description": "Open -a 'zoom.us.app'",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_o",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
                                         "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Messages.app'"
                                     }
                                 ],
                                 "description": "Open -a 'Messages.app'",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -283,22 +282,22 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Messages.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_o",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
                                         "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Spotify.app'"
                                     }
                                 ],
                                 "description": "Open -a 'Spotify.app'",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
@@ -307,22 +306,22 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Spotify.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_o",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
                                         "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open https://web.whatsapp.com"
                                     }
                                 ],
                                 "description": "Open https://web.whatsapp.com",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "w",
                                     "modifiers": {
@@ -331,36 +330,37 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "shell_command": "open https://web.whatsapp.com"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_o",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
                                         "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open https://calendar.google.com"
                                     }
                                 ],
                                 "description": "Open https://calendar.google.com",
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "c",
+                                    "key_code": "r",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "shell_command": "open https://calendar.google.com"
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 1
                                     }
-                                ],
-                                "type": "basic"
+                                ]
                             }
                         ]
                     },
@@ -368,34 +368,8 @@
                         "description": "Hyper Key sublayer \"w\"",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_o",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_v",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_c",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
                                 "description": "Toggle Hyper sublayer w",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "w",
                                     "modifiers": {
@@ -407,14 +381,6 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_w",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
@@ -423,25 +389,44 @@
                                         }
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
+                                "to": [
                                     {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_w",
+                                            "value": 1
+                                        }
                                     }
                                 ],
-                                "description": "Window: Top Half",
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_c",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 0
                                     }
-                                },
+                                ]
+                            },
+                            {
+                                "description": "Window: Top Half",
                                 "to": [
                                     {
                                         "key_code": "k",
@@ -451,25 +436,25 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Window: Bottom Half",
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "j",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "description": "Window: Bottom Half",
                                 "to": [
                                     {
                                         "key_code": "j",
@@ -479,25 +464,25 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Window: Left Half",
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "description": "Window: Left Half",
                                 "to": [
                                     {
                                         "key_code": "h",
@@ -507,25 +492,25 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Window: Right Half",
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "description": "Window: Right Half",
                                 "to": [
                                     {
                                         "key_code": "l",
@@ -535,24 +520,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "r",
+                                    "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "r",
@@ -562,24 +547,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "b",
+                                    "key_code": "r",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "t",
@@ -589,24 +574,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "f",
+                                    "key_code": "e",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "m",
@@ -616,24 +601,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "d",
+                                    "key_code": "f",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "f",
@@ -643,24 +628,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "d",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "n",
@@ -670,16 +655,7 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "m",
                                     "modifiers": {
@@ -688,6 +664,15 @@
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "p",
@@ -697,7 +682,74 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "h",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "l",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -705,34 +757,8 @@
                         "description": "Hyper Key sublayer \"s\"",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_o",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_v",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_c",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
                                 "description": "Toggle Hyper sublayer s",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
@@ -744,14 +770,6 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_s",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
@@ -760,16 +778,49 @@
                                         }
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
+                                "to": [
                                     {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 1
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_s",
+                                            "value": 1
+                                        }
                                     }
                                 ],
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_c",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "volume_increment"
+                                    }
+                                ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -778,21 +829,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "volume_increment"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_s",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "volume_decrement"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -801,21 +852,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "volume_decrement"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_s",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "display_brightness_increment"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -824,21 +875,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "display_brightness_increment"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_s",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "display_brightness_decrement"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -847,29 +898,15 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "display_brightness_decrement"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_s",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
                                         "value": 1
                                     }
-                                ],
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "q",
@@ -879,16 +916,30 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_s",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "play_or_pause"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
@@ -897,21 +948,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "play_or_pause"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_s",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "fastforward"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "semicolon",
                                     "modifiers": {
@@ -920,29 +971,15 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "fastforward"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_s",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
                                         "value": 1
                                     }
-                                ],
-                                "from": {
-                                    "key_code": "e",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "spacebar",
@@ -952,7 +989,22 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
+                                        "value": 1
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -960,34 +1012,8 @@
                         "description": "Hyper Key sublayer \"v\"",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_o",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_c",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
                                 "description": "Toggle Hyper sublayer v",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": {
@@ -999,14 +1025,6 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_v",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
@@ -1015,16 +1033,49 @@
                                         }
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
+                                "to": [
                                     {
-                                        "name": "hyper_sublayer_v",
-                                        "type": "variable_if",
-                                        "value": 1
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_v",
+                                            "value": 1
+                                        }
                                     }
                                 ],
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_c",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
@@ -1033,21 +1084,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_v",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -1056,21 +1107,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_v",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -1079,21 +1130,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_v",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -1102,21 +1153,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_v",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "page_down"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -1125,21 +1176,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "page_down"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_v",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "page_up"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -1148,12 +1199,13 @@
                                         ]
                                     }
                                 },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "key_code": "page_up"
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
+                                        "value": 1
                                     }
-                                ],
-                                "type": "basic"
+                                ]
                             }
                         ]
                     },
@@ -1161,34 +1213,8 @@
                         "description": "Hyper Key sublayer \"c\"",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_o",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_v",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
                                 "description": "Toggle Hyper sublayer c",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": {
@@ -1200,14 +1226,6 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_c",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
@@ -1216,16 +1234,49 @@
                                         }
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
+                                "to": [
                                     {
-                                        "name": "hyper_sublayer_c",
-                                        "type": "variable_if",
-                                        "value": 1
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_c",
+                                            "value": 1
+                                        }
                                     }
                                 ],
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "play_or_pause"
+                                    }
+                                ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
@@ -1234,21 +1285,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "play_or_pause"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_c",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_c",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "fastforward"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
@@ -1257,21 +1308,21 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "fastforward"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "conditions": [
                                     {
-                                        "name": "hyper_sublayer_c",
                                         "type": "variable_if",
+                                        "name": "hyper_sublayer_c",
                                         "value": 1
                                     }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "key_code": "rewind"
+                                    }
                                 ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "b",
                                     "modifiers": {
@@ -1280,12 +1331,13 @@
                                         ]
                                     }
                                 },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "key_code": "rewind"
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_c",
+                                        "value": 1
                                     }
-                                ],
-                                "type": "basic"
+                                ]
                             }
                         ]
                     },
@@ -1293,34 +1345,8 @@
                         "description": "Hyper Key sublayer \"f\"",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_o",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_v",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_c",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
                                 "description": "Toggle Hyper sublayer f",
+                                "type": "basic",
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": {
@@ -1332,14 +1358,6 @@
                                         ]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_f",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
@@ -1348,24 +1366,43 @@
                                         }
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
+                                "to": [
                                     {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 1
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_f",
+                                            "value": 1
+                                        }
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_v",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_c",
+                                        "value": 0
                                     }
-                                },
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "j",
@@ -1374,24 +1411,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "k",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "k",
@@ -1400,24 +1437,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "h",
@@ -1426,24 +1463,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "l",
@@ -1452,24 +1489,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "u",
+                                    "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "s",
@@ -1478,24 +1515,24 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_f",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "i",
+                                    "key_code": "u",
                                     "modifiers": {
                                         "mandatory": [
                                             "any"
                                         ]
                                     }
                                 },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
                                 "to": [
                                     {
                                         "key_code": "g",
@@ -1504,7 +1541,22 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_f",
+                                        "value": 1
+                                    }
+                                ]
                             }
                         ]
                     }
