@@ -48,13 +48,15 @@ const rules: KarabinerRules[] = [
       g: app("Google Chrome"),
       v: app("Visual Studio Code"),
       s: app("Slack"),
-      e: app("Trello"),
+      l: app("Trello"),
       t: app("Warp"),
       z: app("zoom.us"),
       i: app("Messages"),
       p: app("Spotify"),
       w: open("https://web.whatsapp.com"),
       r: open("https://calendar.google.com"),
+      // # open finder
+      e: { to: [{ key_code: "spacebar", modifiers: ["left_option","left_command"],}],},
     },
 
     // w = "Window" via Raycast.app
